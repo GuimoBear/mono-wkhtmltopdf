@@ -1,4 +1,4 @@
-FROM mono:5.0.1
+FROM mono:4.6.1.3-onbuild
 MAINTAINER Guilherme Barros <guilherme@tecsoft.info>
 WORKDIR /tmp
 ENV WKHTMLTOPDF_BIN "/usr/bin"
