@@ -6,8 +6,10 @@ RUN echo "deb http://httpredir.debian.org/debian jessie main contrib" > /etc/apt
     && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
     && apt-get update \
     && apt-get install -y ttf-mscorefonts-installer xz-utils wget \
-    && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
-    && tar xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \ 
+    && wget http://http.us.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg62-turbo_1.3.1-12_amd64.deb \
+    && apt install ./libjpeg62-turbo_1.3.1-12_amd64.deb \
+    && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb \
+    && apt install ./wkhtmltox_0.12.5-1.jessie_amd64.deb \
     && mv wkhtmltox/bin/wkhtmlto* /usr/bin/ \
     && apt-get install libxext-dev \
     && apt-get -y remove --purge wget xz-utils \ 
