@@ -1,8 +1,8 @@
-FROM mono:4.6.1.3-onbuild
-MAINTAINER Guilherme Barros <guilherme@tecsoft.info>
+FROM mono:4.6.1.3-onbuild as onbuild
+
+FROM mono:4.6.1.3 as dependencies
 WORKDIR /tmp
 ENV WKHTMLTOPDF_BIN "/usr/bin"
-
 RUN echo "deb http://httpredir.debian.org/debian jessie main contrib" > /etc/apt/sources.list \
     && echo "deb http://security.debian.org/ jessie/updates main contrib" >> /etc/apt/sources.list \
     && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
