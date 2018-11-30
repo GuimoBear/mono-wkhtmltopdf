@@ -9,7 +9,7 @@ RUN apt-get install -y ttf-mscorefonts-installer xz-utils wget
 RUN wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \
     && tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz \ 
     && mv wkhtmltox/bin/wkhtmlto* /usr/bin/
-RUN && apt-get -y remove --purge wget xz-utils \ 
+RUN apt-get -y remove --purge wget xz-utils \ 
     && apt-get clean \ 
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/*
