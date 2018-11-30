@@ -9,6 +9,7 @@ RUN echo "deb http://httpredir.debian.org/debian jessie main contrib" > /etc/apt
     && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
     && tar xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \ 
     && mv wkhtmltox/bin/wkhtmlto* /usr/bin/ \
+    && apt-get install libxext-dev \
     && apt-get -y remove --purge wget xz-utils \ 
     && apt-get clean \ 
     && apt-get autoremove -y \
