@@ -8,9 +8,9 @@ RUN echo "deb http://httpredir.debian.org/debian jessie main contrib" > /etc/apt
     && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
     && apt-get update \
     && apt-get install -y ttf-mscorefonts-installer xz-utils wget \
-    && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \
-    && tar xvf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz \ 
-    && mv wkhtmltox/bin/wkhtmlto* /usr/bin/ \
+    && wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5/wkhtmltox_0.12.5-1.jessie_amd64.deb \
+    && dpkg -i wkhtmltox_0.12.5-1.jessie_amd64.deb \
+    && apt-get install -f \
     && apt-get -y remove --purge wget xz-utils \ 
     && apt-get clean \ 
     && apt-get autoremove -y \
